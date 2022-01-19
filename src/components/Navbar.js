@@ -8,11 +8,25 @@ import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
 import puppy from "../assets/pukki.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
+import { auth } from "../firebase.js";
+import { actionTypes } from "../reducer";
 
 export default function Navbar() {
-  const [{ basket }, dispatch] = useStateValue();
+  const [{ basket, user }, dispatch] = useStateValue();
+  const navigate = useNavigate();
+
+  const handleAuth = () => {
+    if (user) {
+      auth.signOut();
+      dispatch({
+        type: actionTypes.EMPTY_BASKET,
+        basket: [],
+      });
+      navigate("/");
+    }
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -30,11 +44,13 @@ export default function Navbar() {
             </IconButton>
           </Link>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            ¡Bienvenido!
+            Hola {user ? user.email : "Invitado"}
           </Typography>
-          <Button variant="outlined" color="inherit">
-            Sign In
-          </Button>
+          <Link to="/signin-page">
+            <Button variant="outlined" color="inherit" onClick={handleAuth}>
+              {user ? "Sign Out" : "Sign In"}
+            </Button>
+          </Link>
           <Link to="/checkout-page">
             <IconButton aria-label="show cart items" color="inherit">
               <Badge badgeContent={basket.length} color="error">
