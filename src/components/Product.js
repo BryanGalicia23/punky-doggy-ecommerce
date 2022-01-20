@@ -52,15 +52,7 @@ export default function Product({
 
   return (
     <Card sx={{ maxWidth: 345 }} height="200">
-      <CardHeader
-        action={
-          <Typography color="textSecondary" variant="h5">
-            {accounting.formatMoney(price)}
-          </Typography>
-        }
-        title={name}
-        subheader="Disponible"
-      />
+      <CardHeader title={name} />
       <CardMedia
         component="img"
         height="100%"
@@ -69,6 +61,9 @@ export default function Product({
         alt={name}
       />
       <CardContent>
+        <Typography color="textSecondary" variant="h5">
+          {accounting.formatMoney(price)}
+        </Typography>
         <Typography variant="body2" color="text.secondary">
           {productType}
         </Typography>
