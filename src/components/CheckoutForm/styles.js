@@ -15,6 +15,8 @@ export default makeStyles((theme) => ({
     },
   },
   paper: {
+    marginLeft: theme.spacing(2),
+    marginRight: theme.spacing(2),
     marginTop: theme.spacing(3),
     marginBottom: theme.spacing(3),
     padding: theme.spacing(2),
