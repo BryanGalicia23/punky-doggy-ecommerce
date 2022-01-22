@@ -42,7 +42,7 @@ const AddressForm = ({ nextStep }) => {
               marginTop: "2rem",
             }}
           >
-            <Button component={Link} to="/checkout-page">
+            <Button variant="outlined" component={Link} to="/checkout-page">
               Back to the Checkout Page
             </Button>
             <Button type="submit" variant="contained" color="primary">

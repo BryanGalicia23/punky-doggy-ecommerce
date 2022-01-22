@@ -21,7 +21,6 @@ const Review = () => {
             </Typography>
           </ListItem>
         ))}
-
         <ListItem>
           <ListItemText primary="Total" />
           <Typography variant="subtitle1">
