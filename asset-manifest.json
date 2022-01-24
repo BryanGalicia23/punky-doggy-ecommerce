@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/punky-doggy-ecommerce/static/css/main.22a3be45.css",
+    "main.js": "/punky-doggy-ecommerce/static/js/main.794e32f8.js",
+    "static/js/787.d32cbdc2.chunk.js": "/punky-doggy-ecommerce/static/js/787.d32cbdc2.chunk.js",
+    "index.html": "/punky-doggy-ecommerce/index.html",
+    "main.22a3be45.css.map": "/punky-doggy-ecommerce/static/css/main.22a3be45.css.map",
+    "main.794e32f8.js.map": "/punky-doggy-ecommerce/static/js/main.794e32f8.js.map",
+    "787.d32cbdc2.chunk.js.map": "/punky-doggy-ecommerce/static/js/787.d32cbdc2.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.22a3be45.css",
+    "static/js/main.794e32f8.js"
+  ]
+}
