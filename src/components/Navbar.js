@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Badge from "@mui/material/Badge";
-import puppy from "../assets/pukki.png";
+import puppy from "../assets/dogo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useStateValue } from "../StateProvider";
 import { auth } from "../firebase.js";
@@ -30,7 +30,7 @@ export default function Navbar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ backgroundColor: "#3399ff" }}>
         <Toolbar>
           <Link to="/">
             <IconButton
@@ -43,11 +43,21 @@ export default function Navbar() {
               <img src={puppy} alt="puppy" />
             </IconButton>
           </Link>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Hola {user ? user.email : "Invitado"}
+          <Typography
+            fontWeight="bold"
+            variant="h5"
+            component="div"
+            sx={{ flexGrow: 1, flexShrimp: 1 }}
+          >
+            {user ? "Welcome Pet Lover" : "Hello Guest"}
           </Typography>
-          <Link to="/signin-page">
-            <Button variant="outlined" color="inherit" onClick={handleAuth}>
+          <Link to="/signin-page" style={{ textDecoration: "none" }}>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleAuth}
+              fontWeight="bold"
+            >
               {user ? "Sign Out" : "Sign In"}
             </Button>
           </Link>

@@ -22,8 +22,8 @@ const Review = () => {
           </ListItem>
         ))}
         <ListItem>
-          <ListItemText primary="Total" />
-          <Typography variant="subtitle1">
+          <ListItemText fontWeight="bolder" primary="Total" />
+          <Typography variant="subtitle1" fontWeight="bolder">
             {accounting.formatMoney(getBasketTotal(basket))}
           </Typography>
         </ListItem>

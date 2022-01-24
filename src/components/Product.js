@@ -51,7 +51,11 @@ export default function Product({
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }} height="200">
+    <Card
+      sx={{ maxWidth: 345 }}
+      height="100%"
+      style={{ backgroundColor: "#b3d9ff" }}
+    >
       <CardHeader title={name} />
       <CardMedia
         component="img"
@@ -60,22 +64,22 @@ export default function Product({
         image={image}
         alt={name}
       />
-      <CardContent>
-        <Typography color="textSecondary" variant="h5">
+      <CardContent style={{ padding: "4px" }}>
+        <Typography color="textSecondary" variant="h6">
           {accounting.formatMoney(price)}
         </Typography>
         <Typography variant="body2" color="text.secondary">
           {productType}
         </Typography>
       </CardContent>
-      <CardActions disableSpacing>
+      <CardActions disableSpacing style={{ padding: "4px" }}>
         <IconButton aria-label="Add to Cart" onClick={addToBasket}>
-          <AddShoppingCart fontSize="large" />
+          <AddShoppingCart fontSize="1.2rem" />
         </IconButton>
         {Array(rating)
           .fill()
           .map((_, i) => (
-            <p>⭐</p>
+            <p style={{ fontSize: "0.8rem" }}>⭐</p>
           ))}
         <ExpandMore
           expand={expanded}

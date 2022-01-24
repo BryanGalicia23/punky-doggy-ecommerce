@@ -22,13 +22,22 @@ export default function CheckoutPage() {
             <Total />
           </Typography>
         </Grid>
-        <Grid container spacing={2} item xs={12} sm={12} md={8} lg={8}>
+        <Grid
+          style={{ display: "flex", justifyContent: "center" }}
+          container
+          spacing={2}
+          item
+          xs={12}
+          sm={12}
+          md={8}
+          lg={8}
+        >
           {basket.length === 0 ? (
             <img
               style={{
-                width: "300px",
-                alignItems: "center",
-                marginLeft: "3rem",
+                width: "200px",
+                alignSelf: "center",
+                margin: "3rem",
               }}
               src="https://www.porticodemexico.com.mx/imagenes/carrito/Carro_Vacio.png"
               alt="carrito vacio"

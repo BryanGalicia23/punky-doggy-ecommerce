@@ -11,6 +11,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useStateValue } from "../../StateProvider";
 import { getBasketTotal } from "../../reducer";
 import accounting from "accounting";
+import axios from "axios";
 
 const stripePromise = loadStripe(
   "pk_test_51JFOcaCmQo3nLUwxJYuLegokQDuZ3KoIbUv1xNjkfynLQ4viJGsnvNJipYWCo3DvepiCtueYDea3iSYldZTP3qXs00W48OapaC"
@@ -39,10 +40,36 @@ const CARD_ELEMENT_OPTIONS = {
 
 const CheckoutForm = ({ backStep, nextStep }) => {
   const [{ basket }, dispatch] = useStateValue();
+  const stripe = useStripe();
+  const elements = useElements();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { error, paymentMethod } = await stripe.createPaymentMethod({
+      type: "card",
+      card: elements.getElement(CardElement),
+    });
+    if (!error) {
+      const { id } = paymentMethod;
+      try {
+        const { data } = await axios.post(
+          "http://localhost:3005/api/checkout",
+          {
+            id: id,
+            amount: getBasketTotal(basket) * 100,
+          }
+        );
+        console.log(data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    //console.log(paymentMethod);
+  };
 
   return (
     <>
-      <form>
+      <form onSubmit={handleSubmit}>
         <CardElement options={CARD_ELEMENT_OPTIONS} />
         <div
           style={{

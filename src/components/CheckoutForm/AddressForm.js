@@ -43,7 +43,7 @@ const AddressForm = ({ nextStep }) => {
             }}
           >
             <Button variant="outlined" component={Link} to="/checkout-page">
-              Back to the Checkout Page
+              Back
             </Button>
             <Button type="submit" variant="contained" color="primary">
               Next
